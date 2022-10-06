@@ -1,5 +1,2 @@
 ﻿  Character.cpp
-  Main.cpp
-C:\Users\cpaya\source\repos\Advanced C++\Advanced C++\Main.cpp(10,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Génération de code en cours...
   Advanced C++.vcxproj -> C:\Users\cpaya\source\repos\Advanced C++\x64\Debug\Advanced C++.exe

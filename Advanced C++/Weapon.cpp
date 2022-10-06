@@ -21,11 +21,6 @@ Weapon::~Weapon()
 {
 }
 
-void Weapon::Resolve()
-{
-
-}
-
 void Weapon::Summup()
 {
 }
