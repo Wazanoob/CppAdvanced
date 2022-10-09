@@ -2,10 +2,12 @@
 
 enum class RaceType
 {
-	Elfe,		//1
-	Human,		//2
-	Orc,		//3
-	Gobelin,	//4
-	Troll,		//5
+	Elfe		= 1<<0,
+	Human		= 1<<1,
+	Orc			= 1<<2,
+	Gobelin		= 1<<3,
+	Troll		= 1<<4,
+
+	Count		= 1<<5
 };
 

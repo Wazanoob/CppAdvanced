@@ -1,6 +1,7 @@
 #include "Character.h"
 #include "Potion.h"
 #include "Weapon.h"
+#include "Utils.h"
 #include <algorithm>
 #include <cctype>
 
@@ -15,7 +16,15 @@ int main()
 
 	cout << "==================================== Mini RPG ====================================\n";
 
-	Character player = CharacterCreation();
+	//Character player = CharacterCreation();
+	Character player = Character();
+
+	Potion potion = Potion();
+
+	player.AddItemToInventory(&potion);
+	player.DisplayInventory();
+
+	player.UseItem(0);
 }
 
 void Clear() 
@@ -53,12 +62,15 @@ Character CharacterCreation()
 	cout << endl;
 	Clear();
 
-	cout << "Choose your race:\n"
-		<< "1_ Elfe\n"
-		<< "2_ Human\n"
-		<< "3_ Orc\n"
-		<< "4_ Gobelin\n"
-		<< "5_ Troll\n";
+	cout << "Choose your race:\n";
+
+	int length = static_cast<int>(RaceType::Count);
+	int n = 0;
+
+	for (int i = 1; i < length; i<<=1)
+	{
+		cout << (n += 1) << "_ " << GetRaceName(i) << endl;
+	}
 
 	cout << "\t" << "Choice: ";
 
@@ -71,7 +83,8 @@ Character CharacterCreation()
 
 		int x = 0;
 
-		while (!(choice >> x)) {
+		while (!(choice >> x)) 
+		{
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 			cout << "Enter a number between 1 - 5.  Try again: ";
@@ -193,7 +206,7 @@ Character CharacterCreation()
 	} while (!isTrue);
 
 	cout << "Bonus stats added to " << playerName << endl;
-	cout << playerName << "learned 2 new skills.\n";
+	cout << playerName << " learned 2 new skills.\n";
 	cout << endl;
 
 	system("pause");

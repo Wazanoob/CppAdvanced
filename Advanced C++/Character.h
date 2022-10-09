@@ -2,7 +2,8 @@
 #include "Creature.h"
 #include "RaceType.h"
 #include "CharacterClass.h"
-#include "Item.h"
+#include "Potion.h"
+#include "Weapon.h"
 #include <vector>
 
 class Character :
@@ -19,17 +20,18 @@ private:
     RaceType mRace;
     CharacterClass mClass;
 
-    std::vector<Item> mInventory;
+    std::vector<Item*> mInventory;
 
 public:
     Character();
     Character(std::string name, CharacterClass characterClass, RaceType raceType);
     ~Character();
 
-    void AddItemToInventory(Item item);
+    void AddItemToInventory(Item* item);
     void RemoveItemToInventory(int index);
     void GetStats();
 
+    void UseItem(int index);
     void DisplayInventory();
 };
 

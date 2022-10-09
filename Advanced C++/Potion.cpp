@@ -4,13 +4,14 @@ using namespace std;
 
 Potion::Potion():Item()
 {
-	mAmount = 10;
+	mEffect.amount = 10;
+	mEffect.secondAmount = 15;
 }
 
-Potion::Potion(std::string name, std::string description, int cost, bool isStackeable, int amount)
+Potion::Potion(std::string name, std::string description, int cost, bool isStackeable, int amount, PotionEffect eff)
 	:Item(name, description, cost, isStackeable)
 {
-	mAmount = amount;
+	mEffect = eff;
 }
 
 Potion::~Potion()
@@ -21,11 +22,4 @@ Potion::~Potion()
 Potion Potion::GetItem()
 {
 	return *this;
-}
-
-void Potion::Use(Character& character)
-{
-	cout << character.GetName() << " used " << GetName() << " and healed " << mAmount << " HP.\n";
-
-	character.GetHealed(mAmount);
 }

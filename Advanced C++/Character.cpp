@@ -15,8 +15,6 @@ Character::Character():Creature()
 	mMana = 100;
 	mEnergy = 100;
 	mAttackBonus = 1;
-	
-
 }
 
 Character::Character(string name, CharacterClass characterClass, RaceType raceType)
@@ -90,12 +88,12 @@ Character::~Character()
 	mInventory.~vector();
 }
 
-void Character::AddItemToInventory(Item item)
+void Character::AddItemToInventory(Item* item)
 {
 	if (mInventory.size() < MAX_INVENTORY_CAPACITY)
 	{
 		mInventory.push_back(item);
-		cout << item.GetName() << " added to the inventory.\n";
+		cout << item->GetName() << " added to the inventory.\n";
 	}
 	else
 		cout << "Inventory is full!\n";
@@ -104,12 +102,12 @@ void Character::AddItemToInventory(Item item)
 
 void Character::RemoveItemToInventory(int index)
 {
-	std::vector<Item>::iterator i;
+	std::vector<Item*>::iterator i;
 
 	i = mInventory.begin();
 	i += index;
 
-	cout << mInventory[index].GetName() << " has been destroyed.\n";
+	cout << mInventory[index]->GetName() << " has been destroyed.\n";
 	mInventory.erase(i);
 
 }
@@ -121,7 +119,7 @@ void Character::DisplayInventory()
 	for (int i = 0; i < mInventory.size(); i++)
 	{
 		cout << "\t*" << i << " ";
-		mInventory[i].Summup();
+		mInventory[i]->Summup();
 	}
 }
 
@@ -163,3 +161,31 @@ void Character::GetStats()
 		cout << "+";
 	cout << bonus << ") \n";
 }
+
+void Character::UseItem(int index)
+{
+	Item* i = mInventory[index];
+
+	Potion* p = dynamic_cast<Potion*>(i);
+
+	if (p != nullptr)
+	{
+		Potion::PotionEffect effect;
+
+		effect = p->GetEffect();
+		cout << effect.amount;
+	}
+
+
+	//if(p.GetEffect() == 
+
+	//IUseable* p = dynamic_cast<IUseable*>(i);
+
+	//if (p)
+	//{
+	//	cout << "coucou";
+	//	p->Use(character);
+	//}
+}
+
+

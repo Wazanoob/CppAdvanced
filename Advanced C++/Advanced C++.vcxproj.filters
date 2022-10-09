@@ -13,6 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Enums">
+      <UniqueIdentifier>{54a51f18-f146-4a8a-9b03-3e0b81e460d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Creatures">
+      <UniqueIdentifier>{ae6df3e9-07b1-4920-97c0-15f06e8af606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Items">
+      <UniqueIdentifier>{c94d4e71-cfec-47ba-8e8b-2dac42818ef3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Ressources">
+      <UniqueIdentifier>{43795927-a7bd-45db-b15f-5e104408564b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Creatures\Character">
+      <UniqueIdentifier>{83c5b2e3-54b9-4bbe-8b3a-55dea373a48b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -44,35 +59,41 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Creature.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Abilities.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Weapon.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Item.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Potion.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Battle.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="RaceType.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
     </ClInclude>
     <ClInclude Include="CharacterClass.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature.h">
+      <Filter>Fichiers d%27en-tête\Creatures</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Fichiers d%27en-tête\Creatures</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Fichiers d%27en-tête\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Potion.h">
+      <Filter>Fichiers d%27en-tête\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Fichiers d%27en-tête\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Abilities.h">
+      <Filter>Fichiers d%27en-tête\Creatures</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils.h">
+      <Filter>Fichiers d%27en-tête\Ressources</Filter>
+    </ClInclude>
+    <ClInclude Include="IUseable.h">
+      <Filter>Fichiers d%27en-tête\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Fichiers d%27en-tête\Creatures\Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

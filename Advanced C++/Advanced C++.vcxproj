@@ -156,9 +156,11 @@
     <ClInclude Include="CharacterClass.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="IUseable.h" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="Potion.h" />
     <ClInclude Include="RaceType.h" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

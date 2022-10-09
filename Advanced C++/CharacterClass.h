@@ -7,4 +7,6 @@ enum class CharacterClass
 	Demonist,		//3
 	Priest,			//4
 	Paladin,		//5
+
+	Count
 };

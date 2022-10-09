@@ -1,19 +1,31 @@
 #pragma once
+#include "IUseable.h"
 #include "Item.h"
-#include "Character.h"
 
 class Potion :
-    public Item
+    public Item, public IUseable
 {
+
+public:
+    struct PotionEffect
+    {
+        //XP Potion // HP Potion // BonusDamage Potion // Mana Potion // Energy Potion
+        int amount, secondAmount;
+    };
+
+
 private:
-    int mAmount;
+    PotionEffect mEffect;
 
 public:
     Potion();
-    Potion(std::string name, std::string description, int cost, bool isStackeable, int amount);
+    Potion(std::string name, std::string description, int cost, bool isStackeable, int amount, PotionEffect eff);
     ~Potion();
 
     Potion GetItem();
-    void Use(Character& character);
+    PotionEffect GetEffect() 
+    {
+        return mEffect;
+    };
 };
 
