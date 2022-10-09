@@ -155,6 +155,7 @@ Character CharacterCreation()
 			Clear();
 			cout << "You choosed to be a Troll.\n";
 			raceType = CharacterRace::Troll;
+			raceToString = "Troll";
 			break;
 
 		default:
@@ -183,7 +184,7 @@ Character CharacterCreation()
 			cout << "Sadly your mother was a f* ";
 			break;
 		case 2:
-			cout << "Sadly your father was ";
+			cout << "Sadly your father was a f* ";
 			break;
 
 		default:
@@ -326,7 +327,7 @@ Character CharacterCreation()
 	Clear();
 
 	Character player = Character(playerName, characterClass, raceType);
-	cout << playerName << " Stats:\n";
+	cout << "\t" << playerName << " Stats:\n";
 
 	player.GetStats();
 
