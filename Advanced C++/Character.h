@@ -17,21 +17,24 @@ private:
     int mGolds;
     int const MAX_INVENTORY_CAPACITY = 10;
 
-    RaceType mRace;
+    std::uint8_t mRace;
     CharacterClass mClass;
 
     std::vector<Item*> mInventory;
 
 public:
     Character();
-    Character(std::string name, CharacterClass characterClass, RaceType raceType);
+    Character(std::string name, CharacterClass characterClass, std::uint8_t flags = 0);
     ~Character();
 
     void AddItemToInventory(Item* item);
     void RemoveItemToInventory(int index);
-    void GetStats();
-
     void UseItem(int index);
     void DisplayInventory();
+
+    void GetStats();
+    std::uint8_t GetType();
+
+
 };
 

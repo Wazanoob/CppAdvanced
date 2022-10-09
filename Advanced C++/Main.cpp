@@ -16,15 +16,39 @@ int main()
 
 	cout << "==================================== Mini RPG ====================================\n";
 
-	//Character player = CharacterCreation();
-	Character player = Character();
+	Character player = CharacterCreation();
+	//Character player = Character();
 
-	Potion potion = Potion();
+	/*Potion::PotionEffect normalLowPotion;
+	normalLowPotion.amount = 10;
+	normalLowPotion.secondAmount = 0;
 
-	player.AddItemToInventory(&potion);
-	player.DisplayInventory();
+	Potion::PotionEffect normalMediumPotion;
+	normalMediumPotion.amount = 15;
+	normalMediumPotion.secondAmount = 0;
 
-	player.UseItem(0);
+	Potion::PotionEffect normalLargePotion;
+	normalLargePotion.amount = 25;
+	normalLargePotion.secondAmount = 0;
+
+	Potion::PotionEffect dubleEffectLowPotion;
+	dubleEffectLowPotion.amount = 10;
+	dubleEffectLowPotion.secondAmount = 5;
+
+	Potion::PotionEffect dubleEffectMediumPotion;
+	dubleEffectMediumPotion.amount = 15;
+	dubleEffectMediumPotion.secondAmount = 10;
+
+	Potion::PotionEffect dubleEffectLargePotion;
+	dubleEffectLargePotion.amount = 25;
+	dubleEffectLargePotion.secondAmount = 15;
+
+	Potion healthPotion = Potion("HealthPotion", "Heal a bit of your pain", 100, true, 10, normalLowPotion);*/
+
+	//player.AddItemToInventory(&healthPotion);
+	//player.DisplayInventory();
+
+	//player.UseItem(0);
 }
 
 void Clear() 
@@ -39,7 +63,11 @@ Character CharacterCreation()
 {
 	string playerName;
 	CharacterClass characterClass;
-	RaceType raceType;
+	uint8_t raceType;
+	string raceToString;
+
+	uint8_t dinoCatFlag;
+	dinoCatFlag = CharacterRace::Elfe | CharacterRace::Gobelin;
 
 	cout << "Welcome travelers! Please, choose a name for your hero.\n";
 	cout << "\t" << "Hero's name: ";
@@ -64,7 +92,7 @@ Character CharacterCreation()
 
 	cout << "Choose your race:\n";
 
-	int length = static_cast<int>(RaceType::Count);
+	int length = static_cast<int>(CharacterRace::Count);
 	int n = 0;
 
 	for (int i = 1; i < length; i<<=1)
@@ -76,9 +104,9 @@ Character CharacterCreation()
 
 	bool isTrue = false;
 
+	int choice;
 	do
 	{
-		int choice;
 		cin >> choice;
 
 		int x = 0;
@@ -98,31 +126,35 @@ Character CharacterCreation()
 			isTrue = true;
 			Clear();
 			cout << "You choosed to be an Elfe.\n";
-			raceType = RaceType::Elfe;
+			raceToString = "Elfe";
+			raceType = CharacterRace::Elfe;
 			break;
 		case 2:
 			isTrue = true;
 			Clear();
 			cout << "You choosed to be a Human.\n";
-			raceType = RaceType::Human;
+			raceType = CharacterRace::Human;
+			raceToString = "Human";
 			break;
 		case 3:
 			isTrue = true;
 			Clear();
 			cout << "You choosed to be an Orc.\n";
-			raceType = RaceType::Orc;
+			raceType = CharacterRace::Orc;
+			raceToString = "Orc";
 			break;
 		case 4:
 			isTrue = true;
 			Clear();
 			cout << "You choosed to be a Gobelin.\n";
-			raceType = RaceType::Gobelin;
+			raceType = CharacterRace::Gobelin;
+			raceToString = "Gobelin";
 			break;
 		case 5:
 			isTrue = true;
 			Clear();
 			cout << "You choosed to be a Troll.\n";
-			raceType = RaceType::Troll;
+			raceType = CharacterRace::Troll;
 			break;
 
 		default:
@@ -132,8 +164,89 @@ Character CharacterCreation()
 		}
 	} while (!isTrue);
 
-	cout << "Bonus stats added to "<< playerName << endl;
-	cout << endl;
+	int random;
+	random = (rand() % 5 + 1);
+
+	if (random != choice) 
+	{
+		cout << "But ...\n";
+		cout << endl;
+
+		system("pause");
+		Clear();
+
+		int fiftyfifty;
+		fiftyfifty = (rand() % 2 + 1);
+		switch (fiftyfifty)
+		{
+		case 1:
+			cout << "Sadly your mother was a f* ";
+			break;
+		case 2:
+			cout << "Sadly your father was ";
+			break;
+
+		default:
+			cout << "Fail fifty fifty u little twat";
+			break;
+		}
+
+		switch (random)
+		{
+		case 1:
+			cout << "Elfe.\n";
+			raceType |= CharacterRace::Elfe;
+			break;
+		case 2:
+			cout << "Human.\n";
+			raceType |= CharacterRace::Human;
+			break;
+		case 3:
+			cout << "Orc.\n";
+			raceType |= CharacterRace::Orc;
+			break;
+		case 4:
+			cout << "Gobelin.\n";
+			raceType |= CharacterRace::Gobelin;
+			break;
+		case 5:
+			cout << "Troll.\n";
+			raceType |= CharacterRace::Troll;
+			break;
+		}
+		cout << playerName << " is half " << raceToString << " and half ";
+
+		if (raceType & CharacterRace::Elfe && choice != 1)
+		{
+			cout << "Elfe.\n";
+		}
+		if (raceType & CharacterRace::Human && choice != 2)
+		{
+			cout << "Human.\n";
+		}
+		if (raceType & CharacterRace::Orc && choice != 3)
+		{
+			cout << "Orc.\n";
+		}
+		if (raceType & CharacterRace::Gobelin && choice != 4)
+		{
+			cout << "Gobelin.\n";
+		}
+		if (raceType & CharacterRace::Troll && choice != 5)
+		{
+			cout << "Troll.\n";
+		}
+
+		cout << endl;
+		cout << "Hybrid bonus stats added to " << playerName << endl;
+	}
+	else
+	{
+		cout << "Bonus stats added to " << playerName << endl;
+		cout << endl;
+	}
+	
+
 
 	//Press any key to continue
 	system("pause");
@@ -213,6 +326,8 @@ Character CharacterCreation()
 	Clear();
 
 	Character player = Character(playerName, characterClass, raceType);
+	cout << playerName << " Stats:\n";
+
 	player.GetStats();
 
 

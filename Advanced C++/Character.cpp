@@ -5,7 +5,7 @@ using namespace std;
 Character::Character():Creature()
 {
 	mClass = CharacterClass::Warrior;
-	mRace = RaceType::Human;
+	mRace = CharacterRace::Human;
 
 	mGolds = 100;
 	mArmorPhysic = 10;
@@ -17,11 +17,11 @@ Character::Character():Creature()
 	mAttackBonus = 1;
 }
 
-Character::Character(string name, CharacterClass characterClass, RaceType raceType)
+Character::Character(string name, CharacterClass characterClass, uint8_t flags)
 	:Creature(name)
 {
 	mClass = characterClass;
-	mRace = raceType;
+	mRace = flags;
 
 	mGolds = 100;
 	mArmorPhysic = 10;
@@ -32,28 +32,28 @@ Character::Character(string name, CharacterClass characterClass, RaceType raceTy
 	mEnergy = 100;
 	mAttackBonus = 1;
 
-	switch (raceType) 
+	switch (flags)
 	{
-	case RaceType::Elfe:
+	case CharacterRace::Elfe:
 		mMana += 50;
 		mGolds += 100;
 		break;
-	case RaceType::Human:
+	case CharacterRace::Human:
 		mGolds += 50;
 		mAttackBonus += 1;
 		break;
-	case RaceType::Orc:
+	case CharacterRace::Orc:
 		mMaxHealth += 50;
 		mAttackBonus += 3;
 		mMana -= 50;
 		break;
-	case RaceType::Troll:
+	case CharacterRace::Troll:
 		mMaxHealth += 100;
 		mAttackBonus += 5;
 		mMana -= 50;
 		mEnergy -= 50;
 		break;
-	case RaceType::Gobelin:
+	case CharacterRace::Gobelin:
 		mEnergy += 50;
 		break;
 	}
@@ -162,6 +162,11 @@ void Character::GetStats()
 	cout << bonus << ") \n";
 }
 
+uint8_t Character::GetType() 
+{
+	return mRace;
+}
+
 void Character::UseItem(int index)
 {
 	Item* i = mInventory[index];
@@ -173,7 +178,7 @@ void Character::UseItem(int index)
 		Potion::PotionEffect effect;
 
 		effect = p->GetEffect();
-		cout << effect.amount;
+
 	}
 
 
