@@ -5,10 +5,10 @@ class Creature
 {
 private:
 	std::string mName;
-	int mCurrentHealth;
 
 protected:
 	int mMaxHealth;
+	int mCurrentHealth;
 	int mArmorPhysic;
 	int mArmorMagic;
 
@@ -21,6 +21,7 @@ public:
 	std::string GetName();
 
 	//Attack()
+	int GetHealth();
 	void GetHealed(int amount);
 	void GetHurt(int amount);
 	virtual void Die();

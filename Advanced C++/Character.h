@@ -32,6 +32,7 @@ public:
     void UseItem(int index);
     void DisplayInventory();
 
+    int GetGolds();
     void GetStats();
     std::uint8_t GetType();
 

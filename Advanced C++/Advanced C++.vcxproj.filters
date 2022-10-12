@@ -25,8 +25,8 @@
     <Filter Include="Fichiers d%27en-tête\Ressources">
       <UniqueIdentifier>{43795927-a7bd-45db-b15f-5e104408564b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Creatures\Character">
-      <UniqueIdentifier>{83c5b2e3-54b9-4bbe-8b3a-55dea373a48b}</UniqueIdentifier>
+    <Filter Include="Fichiers d%27en-tête\Story">
+      <UniqueIdentifier>{0037026a-d3f4-4248-a6d5-1779108f60bd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -92,8 +92,14 @@
     <ClInclude Include="IUseable.h">
       <Filter>Fichiers d%27en-tête\Items</Filter>
     </ClInclude>
+    <ClInclude Include="CharacterCreation.h">
+      <Filter>Fichiers d%27en-tête\Story</Filter>
+    </ClInclude>
     <ClInclude Include="Character.h">
-      <Filter>Fichiers d%27en-tête\Creatures\Character</Filter>
+      <Filter>Fichiers d%27en-tête\Creatures</Filter>
+    </ClInclude>
+    <ClInclude Include="ChapterOne.h">
+      <Filter>Fichiers d%27en-tête\Story</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

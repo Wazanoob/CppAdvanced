@@ -4,16 +4,12 @@ using namespace std;
 
 Creature::Creature()
 {
-    mName = "No name";
-    mMaxHealth = 100;
-    mCurrentHealth = mMaxHealth;
+    mName = "Kurgan";
 }
 
 Creature::Creature(std::string name)
 {
     mName = name;
-
-    mCurrentHealth = mMaxHealth;
 }
 
 Creature::~Creature()
@@ -23,6 +19,13 @@ Creature::~Creature()
 std::string Creature::GetName()
 {
     return mName;
+}
+
+int Creature::GetHealth()
+{
+    cout << "MaxHealth: " << mMaxHealth << endl;
+    cout << "CurrentHealth: " << mCurrentHealth << endl;
+    return mCurrentHealth;
 }
 
 void Creature::GetHealed(int amount)

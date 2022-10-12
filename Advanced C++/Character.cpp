@@ -7,14 +7,16 @@ Character::Character():Creature()
 	mClass = CharacterClass::Warrior;
 	mRace = CharacterRace::Human;
 
-	mGolds = 100;
+	mGolds = 150;
 	mArmorPhysic = 10;
 	mArmorMagic = 10;
 
 	mMaxHealth = 100;
+	mCurrentHealth = mMaxHealth;
+
 	mMana = 100;
 	mEnergy = 100;
-	mAttackBonus = 1;
+	mAttackBonus = 2;
 }
 
 Character::Character(string name, CharacterClass characterClass, uint8_t flags)
@@ -28,34 +30,38 @@ Character::Character(string name, CharacterClass characterClass, uint8_t flags)
 	mArmorMagic = 10;
 
 	mMaxHealth = 100;
+
 	mMana = 100;
 	mEnergy = 100;
 	mAttackBonus = 1;
 
-	switch (flags)
+
+	if (flags & CharacterRace::Elfe)
 	{
-	case CharacterRace::Elfe:
 		mMana += 50;
 		mGolds += 100;
-		break;
-	case CharacterRace::Human:
+	}
+	if (flags & CharacterRace::Human)
+	{
 		mGolds += 50;
 		mAttackBonus += 1;
-		break;
-	case CharacterRace::Orc:
+	}
+	if (flags & CharacterRace::Orc)
+	{
 		mMaxHealth += 50;
 		mAttackBonus += 3;
 		mMana -= 50;
-		break;
-	case CharacterRace::Troll:
+	}
+	if (flags & CharacterRace::Gobelin)
+	{
+		mEnergy += 50;
+	}
+	if (flags & CharacterRace::Troll)
+	{
 		mMaxHealth += 100;
 		mAttackBonus += 5;
 		mMana -= 50;
 		mEnergy -= 50;
-		break;
-	case CharacterRace::Gobelin:
-		mEnergy += 50;
-		break;
 	}
 
 	switch (characterClass)
@@ -81,6 +87,8 @@ Character::Character(string name, CharacterClass characterClass, uint8_t flags)
 		mArmorMagic += 3;
 		break;
 	}
+
+	mCurrentHealth = mMaxHealth;
 }
 
 Character::~Character()
@@ -121,6 +129,11 @@ void Character::DisplayInventory()
 		cout << "\t*" << i << " ";
 		mInventory[i]->Summup();
 	}
+}
+
+int Character::GetGolds()
+{
+	return mGolds;
 }
 
 void Character::GetStats()

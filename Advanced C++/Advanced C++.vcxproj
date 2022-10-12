@@ -152,8 +152,10 @@
   <ItemGroup>
     <ClInclude Include="Abilities.h" />
     <ClInclude Include="Battle.h" />
+    <ClInclude Include="ChapterOne.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterClass.h" />
+    <ClInclude Include="CharacterCreation.h" />
     <ClInclude Include="Creature.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="IUseable.h" />
