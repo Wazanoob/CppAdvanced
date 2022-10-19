@@ -52,7 +52,7 @@ Character::Character(string name, CharacterClass characterClass, uint8_t flags)
 		mAttackBonus += 3;
 		mMana -= 50;
 	}
-	if (flags & CharacterRace::Gobelin)
+	if (flags & CharacterRace::Goblin)
 	{
 		mEnergy += 50;
 	}

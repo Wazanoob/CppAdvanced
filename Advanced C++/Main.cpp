@@ -12,8 +12,8 @@ int main()
 	cout << "==================================== Mini RPG ====================================\n";
 
 	/*Chapter 0; Character Creation*/
-	Character player = CharacterCreation();
-	//Character player = Character(); //FOR DEBUGGING
+	//Character player = CharacterCreation();
+	Character player = Character(); //FOR DEBUGGING
 
 	system("pause");
 	Clear();

@@ -13,7 +13,7 @@ Character CharacterCreation()
 	string raceToString;
 
 	uint8_t dinoCatFlag;
-	dinoCatFlag = CharacterRace::Elfe | CharacterRace::Gobelin;
+	dinoCatFlag = CharacterRace::Elfe | CharacterRace::Goblin;
 
 	cout << "Welcome travelers! Please, choose a name for your hero.\n";
 	cout << "\t" << "Hero's name: ";
@@ -79,9 +79,9 @@ Character CharacterCreation()
 		case 4:
 			isTrue = true;
 			Clear();
-			cout << "You choosed to be a Gobelin.\n";
-			raceType = CharacterRace::Gobelin;
-			raceToString = "Gobelin";
+			cout << "You choosed to be a Goblin.\n";
+			raceType = CharacterRace::Goblin;
+			raceToString = "Goblin";
 			break;
 		case 5:
 			isTrue = true;
@@ -140,8 +140,8 @@ Character CharacterCreation()
 			raceType |= CharacterRace::Orc;
 			break;
 		case 4:
-			cout << "Gobelin.\n";
-			raceType |= CharacterRace::Gobelin;
+			cout << "Goblin.\n";
+			raceType |= CharacterRace::Goblin;
 			break;
 		case 5:
 			cout << "Troll.\n";
@@ -162,7 +162,7 @@ Character CharacterCreation()
 		{
 			cout << "Orc.\n";
 		}
-		if (raceType & CharacterRace::Gobelin && choice != 4)
+		if (raceType & CharacterRace::Goblin && choice != 4)
 		{
 			cout << "Gobelin.\n";
 		}
