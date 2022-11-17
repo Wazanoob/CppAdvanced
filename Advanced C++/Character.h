@@ -35,7 +35,5 @@ public:
     int GetGolds();
     void GetStats();
     std::uint8_t GetType();
-
-
 };
 
